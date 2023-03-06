@@ -1,0 +1,28 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs')%>
+<body>
+    <%- include('./partials/nav.ejs')%>
+    <section>
+        <div class="max-w-4xl mx-auto mt-20 flex justify-center items-center">
+            <form action="/add" method="POST" class="px-4 mx-10 py-8 bg-slate-400">
+                <div class="flex items-center justify-between ">
+                    <p class="text-xl px-2 font-semibold">Student's Name</p>
+                    <input class="border-2 border-blue-400 focus:outline-none px-2 py-1 mr-2 my-2" type="text" name="name" id="name">
+                </div>
+        
+                <div class="flex items-center justify-between">
+                    <p class="text-xl px-2 font-semibold">Class</p>
+                    <input class="border-2 border-blue-400 focus:outline-none px-2 py-1 mr-2 my-2" type="text" name="cls" id="class">
+                </div>
+                
+                <div class="flex items-center justify-between">
+                    <p class="text-xl px-2 font-semibold">Registration Number</p>
+                    <input class="border-2 border-blue-400 focus:outline-none px-2 py-1 mr-2 my-2" type="text" name="registrationNumber" id="registration">
+                </div>
+                <button class="flex justify-center mx-auto my-6 -mb-2 px-4 py-2 font-bold bg-slate-500 text-white" type="submit">Submit</button>
+            </form>
+        </div>
+    </section>
+</body>
+</html>

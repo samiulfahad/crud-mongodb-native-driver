@@ -1,0 +1,33 @@
+<!DOCTYPE html>
+<html lang="en">
+<%- include('./partials/head.ejs')%>
+<body>
+    <%- include('./partials/nav.ejs')%>
+    <section>
+        <% if (isNull) {  %>
+            <div class="max-w-4xl mx-auto text-lg font-bold text-center mt-20 text-red-400">
+                <p>NO Student Found</p>
+            </div>
+        <% } else { %>
+            <div class="max-w-4xl mx-auto mt-20 flex justify-center items-center">
+                <form action="/edit" method="POST" class="px-4 mx-10 py-8 bg-slate-400">
+                    <div class="flex items-center justify-between ">
+                        <p class="text-xl px-2 font-semibold">Student's Name</p>
+                        <input class="border-2 border-blue-400 focus:outline-none px-2 py-1 mr-2 my-2" type="text" name="name" id="name" value="<%= student.name %>">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <p class="text-xl px-2 font-semibold">Class</p>
+                        <input class="border-2 border-blue-400 focus:outline-none px-2 py-1 mr-2 my-2" type="text" name="cls" id="cls" value="<%= student.cls %>">
+                    </div>
+                    <div class="flex items-center justify-between">
+                        <p class="text-xl px-2 font-semibold">Registration Number</p>
+                        <input class="border-2 border-blue-400 focus:outline-none px-2 py-1 mr-2 my-2" type="text" name="registrationNumber" id="registration" value="<%= student.registrationNumber %>">
+                    </div>
+                    <input type="hidden" name="studentId" value="<%= student._id %>">
+                    <button class="flex justify-center mx-auto my-6 -mb-2 px-4 py-2 font-bold bg-slate-500 text-white" type="submit">Update</button>
+                </form>
+            </div>
+        <% } %>
+    </section>
+</body>
+</html>

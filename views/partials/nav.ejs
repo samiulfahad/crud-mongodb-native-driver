@@ -1,0 +1,27 @@
+<section class="sticky max-w-4xl mx-auto flex flex-col justify-center items-center text-center -mb-16 py-4 bg-black">
+        <div class="flex flex-col justify-center items-center text-center text-white">
+            <p class="font-bold text-lg"> CRUD Operation Using MongoDB Native Driver </p>
+            <p>
+               <span class="font-bold">Tech Used: </span> Node.JS | Express | MogoDB Native Driver | EJS | Tailwind CSS
+            </p>
+        </div>
+        <hr class="min-w-full mx-auto border-2 border-gray-400 my-2">
+        <nav class="flex sm:flex-col md:flex-row space-x-4 justify-between items-center bg-black">
+            <div class="flex space-x-4 text-gray-300">
+                <a href="/add" class="<%= path === '/add' ? 'font-bold text-white' : ''%> hover:text-white">Add Record</a>
+                <p> | </p>
+                <a href="/all-records" class="<%= path === '/all-records' ? 'font-bold text-white' : ''%> hover:text-white">All Records</a>
+                <p> | </p>
+                <form action="/deleteAll" method="POST">
+                    <button type="submit" class="font-bold text-red-500">Clear All</button>
+                </form>
+            </div>
+            <div> 
+                <form action="/search" method="GET" class="flex sm:flex-col md:flex-row justify-center items-center mt-2 mx-auto sm:space-y-2 md:space-y-0 md:px-2">
+                    <input class="px-2 focus:outline-none md:mr-4 text-center" type="text" name="name" placeholder="Enter Name">
+                    <button class="px-2 border-2 border-white text-white">Search</button>
+                </form>
+            </div>
+        </nav>
+        
+    </section>
