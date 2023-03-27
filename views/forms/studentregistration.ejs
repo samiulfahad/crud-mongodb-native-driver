@@ -16,22 +16,6 @@
           let hasRegiError = regiError.length > 0
           let regiErrorMsg = hasRegiError ? `${regiError[0].msg}` : ''
 
-          let emailError = errors.filter(e => e.param === 'email')
-          let hasEmailError = emailError.length > 0
-          let emailErrorMsg = hasEmailError ? `${emailError[0].msg}` : ''
-
-          let contactNumberError = errors.filter(e => e.param === 'contactNumber')
-          let hasContactNumberError = contactNumberError.length > 0
-          let contactNumberErrorMsg = hasContactNumberError ? `${contactNumberError[0].msg}` : ''
-
-          let fatherNameError = errors.filter(e => e.param === 'fatherName')
-          let hasFatherNameError = fatherNameError.length > 0
-          let fatherNameErrorMsg = hasFatherNameError ? `${fatherNameError[0].msg}` : ''
-          
-          let motherNameError = errors.filter(e => e.param === 'motherName')
-          let hasMotherNameError = motherNameError.length > 0
-          let motherNameErrorMsg = hasMotherNameError ? `${motherNameError[0].msg}` : ''
-
           let avatarError = errors.filter(e => e.param === 'avatar')
           let hasAvatarError = avatarError.length > 0
           let avatarErrorMsg = hasAvatarError ? `${avatarError[0].msg}` : ''
