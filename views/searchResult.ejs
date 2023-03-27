@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="en">
+  <%- include('./partials/head.ejs')%>
+  <body class="bg-sky-100">
+
+    <section>
+        <%- include('./partials/nav.ejs')%>
+    </section>
+
+    <section>
+      <div class="mt-4">
+        <% if (students.length > 0) { %> <% students.forEach((student)=> { %>
+        <div
+          class="max-w-4xl flex justify-between items-center mx-auto px-10 py-2 rounded-lg my-2 bg-gradient-to-r from-sky-300 to-blue-700"
+        >
+          <div class="flex gap-4">
+            <div>
+              <img
+                src="/avatar/1679562938281.jpeg"
+                alt=""
+                class="w-16 h-16 rounded-md"
+              />
+            </div>
+            <div>
+              <p>
+                Name:
+                <span class="font-bold text-white"><%= student.name %></span>
+              </p>
+              <p>
+                Regi. No.: <% if (student.registrationNumber) { %>
+                <span> <%= student.registrationNumber %> </span>
+                <% } else { %>
+                <span> Not Available </span>
+                <% } %>
+              </p>
+            </div>
+          </div>
+          <div class="flex justify-center items-start space-x-4">
+            <a
+              href="/edit?studentId=<%= student._id %>"
+              class="px-2 py-1 text-white rounded bg-indigo-800"
+              >Edit</a
+            >
+            <form action="/delete" method="POST">
+              <button
+                type="submit"
+                class="px-2 py-1 text-white rounded bg-red-500"
+              >
+                Delete
+              </button>
+              <input
+                type="hidden"
+                name="studentId"
+                value="<%= student._id %>"
+              />
+            </form>
+          </div>
+        </div>
+        <% }) %> <% } %> <% if ( students == 0 ) { %>
+        <div class="max-w-4 text-red-500 font-bold text-center">
+          No student found
+        </div>
+
+        <% } %>
+      </div>
+    </section>
+  </body>
+</html>

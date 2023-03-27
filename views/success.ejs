@@ -1,7 +1,7 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs')%>
-<body>
+<body class="bg-sky-100">
     <%- include('./partials/nav.ejs')%>
     <div class="text-center mx-auto max-w-4xl mt-20">
         <p class="text-md <%= action === 'delete' ? 'text-red-500' : 'text-green-600' %>"> The Following Entity was <%= msg %> : </p>
@@ -9,18 +9,19 @@
             <p>ID: <%= student._id %></p>
             <p>Name: <%= student.name %></p>
             <p>Class: <%= student.cls %></p>
+            <p>Class: <%= student.roll %></p>
             <p>Registration Number: <%= student.registrationNumber %></p>
         </div>
     </div>
 
     <% if(action !== 'delete') { %>
-        <div class="max-w-4xl flex justify-center my-8 space-x-4 mx-auto">
+        <div class="max-w-4xl flex justify-center font-mono my-8 space-x-4 mx-auto">
             <form action="/edit" method="GET" class="">
-                <button class="px-2 py-1 font-bold text-white bg-indigo-500" type="submit">Edit</button>
+                <button class="px-3 py-2 rounded-md font-bold text-white bg-indigo-600" type="submit">Edit</button>
                 <input type="hidden" name="studentId" value="<%= student._id %>">
             </form>
             <form action="/delete" method="POST" class="">
-                <button class="px-2 py-1 font-bold text-white bg-red-500" type="submit">Delete</button>
+                <button class="px-3 py-2 rounded-md font-bold text-white bg-red-500" type="submit">Delete</button>
                 <input type="hidden" name="studentId" value="<%= student._id %>">
             </form>
         </div>

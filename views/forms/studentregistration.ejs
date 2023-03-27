@@ -1,0 +1,93 @@
+    <%
+          let eFields = []
+          let nameError = errors.filter(e => e.param === 'name')
+          let hasNameError = nameError.length > 0
+          let nameErrorMsg = hasNameError ? `${nameError[0].msg}` : ''
+
+          let rollError = errors.filter(e => e.param === 'roll')
+          let hasRollError = rollError.length > 0
+          let rollErrorMsg = hasRollError ? `${rollError[0].msg}` : ''
+
+          let clsError = errors.filter(e => e.param === 'cls')
+          let hasClsError = clsError.length > 0
+          let clsErrorMsg = hasClsError ? `${clsError[0].msg}` : ''
+
+          let regiError = errors.filter(e => e.param === 'registrationNumber')
+          let hasRegiError = regiError.length > 0
+          let regiErrorMsg = hasRegiError ? `${regiError[0].msg}` : ''
+
+          let emailError = errors.filter(e => e.param === 'email')
+          let hasEmailError = emailError.length > 0
+          let emailErrorMsg = hasEmailError ? `${emailError[0].msg}` : ''
+
+          let contactNumberError = errors.filter(e => e.param === 'contactNumber')
+          let hasContactNumberError = contactNumberError.length > 0
+          let contactNumberErrorMsg = hasContactNumberError ? `${contactNumberError[0].msg}` : ''
+
+          let fatherNameError = errors.filter(e => e.param === 'fatherName')
+          let hasFatherNameError = fatherNameError.length > 0
+          let fatherNameErrorMsg = hasFatherNameError ? `${fatherNameError[0].msg}` : ''
+          
+          let motherNameError = errors.filter(e => e.param === 'motherName')
+          let hasMotherNameError = motherNameError.length > 0
+          let motherNameErrorMsg = hasMotherNameError ? `${motherNameError[0].msg}` : ''
+
+          let avatarError = errors.filter(e => e.param === 'avatar')
+          let hasAvatarError = avatarError.length > 0
+          let avatarErrorMsg = hasAvatarError ? `${avatarError[0].msg}` : ''
+
+    %>
+
+<form action="/<%= action %>" method="POST" enctype="multipart/form-data" class="mx-auto font-bold font-mono space-y-4 py-10 px-8 bg-sky-400 rounded-tl-3xl rounded-br-3xl text-gray-200">
+
+    <div class="grid grid-flow-row grid-cols-2 gap-x-8 px-4">
+        <div class="flex flex-col">
+            <label for="name">Full Name of Student</label>
+            <input type="text" name="name" value="<%= studentData.name %>" class="<%= hasNameError ? 'border-2 border-red-600' : '' %> text-gray-800 rounded-md px-2 py-1 focus:outline-none">
+            <p class="text-sm text-red-600"> <%= nameErrorMsg %> </p>
+        </div>
+        <div class="flex flex-col">
+            <label for="class">Class</label>
+            <select type="select" name="cls" class="<%= hasClsError ? 'border-2 border-red-600' : '' %> text-gray-800 rounded-md px-2 py-1 focus:outline-none">
+                <option value="" > Select </option>
+                <option value="1" <%= studentData.cls == "1" ? 'selected' : '' %> > Class-1 </option> 
+                <option value="2" <%= studentData.cls == "2" ? 'selected' : '' %> > Class-2 </option>
+                <option value="3" <%= studentData.cls == "3" ? 'selected' : '' %> > Class-3 </option>
+                <option value="4" <%= studentData.cls == "4" ? 'selected' : '' %> > Class-4 </option>
+                <option value="5" <%= studentData.cls == "5" ? 'selected' : '' %> > Class-5 </option>    
+            </select>
+            <p class="text-sm text-red-600"> <%= clsErrorMsg %> </p>
+        </div>
+    </div>
+
+    <div class="grid grid-flow-row grid-cols-2 gap-x-8 px-4">
+        <div class="flex flex-col">
+            <label for="roll">Roll</label>
+            <input type="number" name="roll" value="<%= studentData.roll %>" class="<%= hasRollError ? 'border-2 border-red-600' : '' %> text-gray-800 rounded-md px-2 py-1 focus:outline-none">
+            <p class="text-sm text-red-600"> <%= rollErrorMsg %> </p>
+        </div>
+        <div class="flex flex-col">
+            <label for="registrationNumber">Registration Number</label>
+            <input type="text" name="registrationNumber" value="<%= studentData.registrationNumber %>" class="<%= hasRegiError ? 'border-2 border-red-600' : '' %> text-gray-800 rounded-md px-2 py-1 focus:outline-none">
+            <p class=" text-sm text-red-600"> <%= regiErrorMsg %> </p>
+        </div>
+    </div>
+
+    <div class="grid grid-flow-row grid-cols-2 gap-x-8 px-4">
+        <div class="flex flex-col">
+            <label for="avatar">Student's Photo</label>
+        </div>
+        <div class="flex flex-col">
+            <input type="file" name="avatar" class="<%= hasAvatarError ? 'border-2 border-red-600' : '' %> rounded-lg">
+            <p class=" text-sm text-red-600"> <%= avatarErrorMsg %> </p>
+        </div>
+    </div>
+
+    <div>
+        <input type="hidden" name="studentId" value="<%= studentData._id %>">
+    </div>
+
+    <div class="flex justify-center items-center pt-8">
+        <button type="submit" class="text-white font-bold text-lg text-center px-3 py-2 rounded-tr-xl shadow-2xl z-20 hover:from-gray-600 hover:to-slate-400 duration-300 rounded-bl-xl bg-gradient-to-r from-cyan-300 to-blue-600"> <%= button %> </button>
+    </div>
+</form>

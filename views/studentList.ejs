@@ -1,36 +1,58 @@
 <!DOCTYPE html>
 <html lang="en">
 <%- include('./partials/head.ejs')%>
-<body>
+<body class="bg-sky-100">
     <%- include('./partials/nav.ejs')%>
-
-    <section class="mt-20">
+    <section class="mt-4">
         <% if (students.length > 0) { %>
             <% students.slice().reverse().forEach((student)=> { %>
-                <div class="flex justify-between items-center mx-auto px-10 py-2 max-w-4xl my-2 bg-slate-400">
-                    <div>
-                        <p>Name: <span class="font-bold"><%= student.name %></span></p>
-                        <p>Regi. No.: 
-                            <% if (student.registrationNumber) { %>
-                                <span> <%= student.registrationNumber %> </span>
-                            <% } else { %>
-                                <span> Not Available </span>
-                            <% } %>
-                        </p>
+                <div class="flex justify-between items-center mx-auto px-10 py-2 max-w-4xl rounded-lg my-2 bg-gradient-to-r from-sky-300 to-blue-700">
+                    <div class="flex gap-4">
+                        <div>
+                            <img src="/<%= student.avatar %>" alt="No Image" class="w-16 h-16 rounded-md">
+                        </div>
+                        <div>
+                            <p>Name: <span class="font-bold text-white"><%= student.name %></span></p>
+                            <p>Regi. No.: 
+                                <% if (student.registrationNumber) { %>
+                                    <span> <%= student.registrationNumber %> </span>
+                                <% } else { %>
+                                    <span> Not Available </span>
+                                <% } %>
+                            </p>
+                        </div>
                     </div>
                     <div class="flex justify-center items-start space-x-4">
-                        <a href="/edit?studentId=<%= student._id %>" class="px-2 py-1 text-white bg-indigo-500">Edit</a>
+                        <a href="/edit?studentId=<%= student._id %>" class="px-2 py-1 text-white rounded bg-indigo-800">Edit</a>
                         <form action="/delete" method="POST">
-                        <button type="submit" class="px-2 py-1 text-white bg-red-500">Delete</button>
+                        <button type="submit" class="px-2 py-1 text-white rounded bg-red-500">Delete</button>
                         <input type="hidden" name="studentId" value="<%= student._id %>">  
                         </form>
                     </div>
                 </div>
+
             <% }) } else { %>
                 <div class="max-w-4xl mx-auto text-center font-bold mt-20 text-lg text-red-500">
                     <p>Studentlist is Empty</p>
                 </div>
             <%  } %>
+
+            <div class="max-w-4xl mx-auto gap-2 flex flex-wrap justify-center items-center">
+                <% if ( currentPage > 1) { %>
+                    <a href="?page=<%= currentPage -1 %>" class="bg-indigo-600 px-2 py-1 text-white rounded-lg"> Prev Page </a>
+                <% } %>
+                
+                <% pages.forEach( page => { %>
+                   
+                    <a href="?page=<%= page %>" class="<%= currentPage === page ? 'bg-indigo-600 text-black' : 'bg-sky-300' %> px-2 py-1 text-white rounded-lg"> <%= page %> </a>
+               
+                <% }) %>
+                
+                <% if ( currentPage < pages.length) { %>
+                    <a href="?page=<%= currentPage + 1 %>" class="bg-indigo-600 px-2 py-1 text-white rounded-lg"> Next Page </a>
+                <% } %>
+
+            </div>
     </section>
 
 </body>

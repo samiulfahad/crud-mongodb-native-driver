@@ -1,28 +1,45 @@
 <!DOCTYPE html>
 <html lang="en">
-<%- include('./partials/head.ejs')%>
-<body>
+  <%- include('./partials/head.ejs')%>
+  <body class="bg-sky-100 min-h-screen mx-auto ">
     <%- include('./partials/nav.ejs')%>
     <section>
-        <div class="max-w-4xl mx-auto mt-20 flex justify-center items-center">
-            <form action="/add" method="POST" class="px-4 mx-10 py-8 bg-slate-400">
-                <div class="flex items-center justify-between ">
-                    <p class="text-xl px-2 font-semibold">Student's Name</p>
-                    <input class="border-2 border-blue-400 focus:outline-none px-2 py-1 mr-2 my-2" type="text" name="name" id="name">
-                </div>
+      <div class="text-black font-mono max-w-4xl mx-auto text-center mt-16">
+        <p>
+          <span class="text-lg">Hello, </span> This is <span class="font-bold">Samiul Fahad.</span>
+          And you are welcomed to visit my <span class="font-bold text-sky-400"> CRUD App Node.JS Project </span>
+        </p>
         
-                <div class="flex items-center justify-between">
-                    <p class="text-xl px-2 font-semibold">Class</p>
-                    <input class="border-2 border-blue-400 focus:outline-none px-2 py-1 mr-2 my-2" type="text" name="cls" id="class">
-                </div>
-                
-                <div class="flex items-center justify-between">
-                    <p class="text-xl px-2 font-semibold">Registration Number</p>
-                    <input class="border-2 border-blue-400 focus:outline-none px-2 py-1 mr-2 my-2" type="text" name="registrationNumber" id="registration">
-                </div>
-                <button class="flex justify-center mx-auto my-6 -mb-2 px-4 py-2 font-bold bg-slate-500 text-white" type="submit">Submit</button>
-            </form>
-        </div>
+      </div>
+       <div class="text-black font-mono text-left mt-8 max-w-2xl mx-auto">
+        <p class="text-lg font-bold">This is a Basic CRUD App. Here are some Features of this Web App</p>
+        <ul>
+          <li>=> CRUD Student Profile</li>
+          <li>=> Upload Files with Validations</li>
+          <li>=> Pagination</li>
+          <li>=> Data Validation and Sanitization</li>
+          <li>=> Error Handling</li>
+        </li>
+       </div>
+
+       <div class="text-black font-mono text-left mt-8 max-w-2xl mx-auto">
+        <p class="text-lg font-bold">Following technologies have been used to develop the Web App</p>
+        <ul>
+          <li>=> Express.Js</li>
+          <li>=> MongoDB Native Driver for Node.js</li>
+          <li>=> Multer for handling files</li>
+          <li>=> Express Validator for data validation and sanitization</li>
+          <li>=> EJS as templating engine</li>
+          <li>=> Tailwind CSS for Styling</li>
+        </li>
+       </div>
+       <div class="flex justify-center items-center gap-5 mt-8">
+        <a href="" class="px-3 py-1 bg-sky-400 text-white rounded font-mono">About Me</a>
+        <a href="" class="px-3 py-1 bg-sky-400 text-white rounded font-mono">View CV</a>
+        <a href="" class="px-3 py-1 bg-sky-400 text-white rounded font-mono">Contact Me</a>
+        <a href=""></a>
+
+       </div>
     </section>
-</body>
+  </body>
 </html>
