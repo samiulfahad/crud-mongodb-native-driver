@@ -33,6 +33,7 @@ exports.postAdd = async (req, res) => {
   const studentData = { name, roll, cls, registrationNumber };
   const errors = validationResult(req);
   if (!errors.isEmpty()) {
+    console.log(errors.array());
     fs.unlink(avatar, (err) => {
      if(err){
       console.log(err);
